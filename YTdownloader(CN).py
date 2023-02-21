@@ -77,7 +77,7 @@ def start():
    how_use_btn.place(x=10, y=352)
    how_use_btn["border"] = "0"
 
-   Button(self, text='Выйти', relief='flat', bg='black', fg='red', font=('Times', 15),
+   Button(self, text='出去', relief='flat', bg='black', fg='red', font=('Times', 15),
                         command=self.destroy).place(x=515, y=350)
 
 
