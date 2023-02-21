@@ -1,3 +1,6 @@
+'''
+FR version
+'''
 from pytube import YouTube
 from tkinter import *
 import tkinter as tk
@@ -19,9 +22,9 @@ def start():
       win.title('YouTube video download | Как пользоваться')
       win["bg"] = 'white'
 
-      Label(win, text='Как пользоваться программой ', bg='white', font=('Times', 20)).pack()
+      Label(win, text='Comment utiliser le programme ', bg='white', font=('Times', 20)).pack()
 
-      Label(win, text='1. Введите ссылку в соответствующее поле           \n2. Нажмите на кнопку "Проверить ссылку"          \n3. Выберете высокое или низкое качество             \n         (Высокое качество - максимальное, \n              Низкое качество - минимальное(144р))\n4. Файл сохраниться в папку с файлом                   \n\n!Если вы введёте неправильную ссылку програма может закрыться!', bg='white', font=('Times', 10)).pack()
+      Label(win, text='1. Saisissez le lien dans le champ \n2 approprié. Cliquez sur le bouton "Vérifier le lien" \n3. Choisissez une qualité élevée ou faible\n (Haute qualité - maximum, \n Basse qualité - minimum (144p))\n4. Le fichier sera enregistré dans le dossier avec le fichier \n\n ! Si vous entrez le mauvais lien, le programme peut se fermer !', bg='white', font=('Times', 10)).pack()
 
 
       win.mainloop()
@@ -29,31 +32,31 @@ def start():
    def show_message():
 
       def low():
-         messagebox.showinfo('Загрузка началась', 'Загрузка началась\nЗакройте данное окно\nКачество: низкое', icon='question')
+         messagebox.showinfo('Téléchargement commencé', 'Téléchargement commencé\nFermer cette fenêtre\nQualité : Faible', icon='question')
          output = video.streams.get_lowest_resolution()
          output.download()
-         messagebox.showinfo('Загрузка завершена', 'Загрузка завершена\nФайл сохранён в папку программы')
+         messagebox.showinfo('Téléchargement terminé', 'Téléchargement terminé\nLe fichier a été enregistré dans le dossier du programme')
 
       def high():
-         messagebox.showinfo('Загрузка началась', 'Загрузка началась\nЗакройте данное окно\nКачество: высокое', icon='question')
+         messagebox.showinfo('Téléchargement commencé', 'Téléchargement commencé\nFermer cette fenêtre\nQualité : élevée', icon='question')
          output = video.streams.get_highest_resolution()
          output.download()
-         messagebox.showinfo('Загрузка завершена', 'Загрузка завершена\nФайл сохранён в папку программы')
+         messagebox.showinfo('Téléchargement terminé', 'Téléchargement terminé\nLe fichier a été enregistré dans le dossier du programme')
 
       link = entry.get()
       video = YouTube(link)
       if video == YouTube(link):
 
-         Label(self, text='Выбeрите качество: ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=175)
+         Label(self, text='Sélectionnez la qualité : ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=175)
 
 
-         high_btn = Button(self, text='Высоком качестве', relief='flat', bg='black', fg='green', font=('Times', 15), command=high)
+         high_btn = Button(self, text='Haute qualité', relief='flat', bg='black', fg='green', font=('Times', 15), command=high)
          high_btn.place(x=30, y=205)
 
-         low_btn = Button(self, text='Низком качестве', relief='flat', bg='black', fg='crimson', font=('Times', 15), command=low)
+         low_btn = Button(self, text='Basse qualité', relief='flat', bg='black', fg='crimson', font=('Times', 15), command=low)
          low_btn.place(x=230, y=205)
       else:
-         messagebox.showerror('Ошибка!', 'Ошибка! \nСсылка неверная')
+         messagebox.showerror('Erreur !', 'Erreur ! \nLien invalide')
 
       print(video)
       print(entry.get())
@@ -64,21 +67,21 @@ def start():
    self.title('YouTube video download')
    self["bg"] = 'black'
 
-   ready_btn = Button(self, text='Проверить\nссылку', relief='flat', bg='black', fg='white', font=('Times', 15),
+   ready_btn = Button(self, text='Vérifier\nle lien', relief='flat', bg='black', fg='white', font=('Times', 15),
                       command=show_message)
    ready_btn.place(x=470, y=100)
    ready_btn["border"] = "0"
 
-   how_use_btn = Button(self, text='Как пользоваться', relief='flat', bg='black', fg='blue', font=('Times', 15),
+   how_use_btn = Button(self, text='Comment utiliser', relief='flat', bg='black', fg='blue', font=('Times', 15),
                         command=info)
    how_use_btn.place(x=10, y=352)
    how_use_btn["border"] = "0"
 
-   Button(self, text='Выйти', relief='flat', bg='black', fg='red', font=('Times', 15),
+   Button(self, text='Sortir', relief='flat', bg='black', fg='red', font=('Times', 15),
                         command=self.destroy).place(x=515, y=350)
 
 
-   Label(self, text='Введите ссылку на видео: ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=100)
+   Label(self, text='Entrez le lien vidéo :', bg='black', fg='white', font=('Times', 15)).place(x=10, y=100)
 
    label = Label(self, text=" YouTube video downloader", bg='black', fg='white', font=('Times', 35))
    label.place(x=25, y=10)
