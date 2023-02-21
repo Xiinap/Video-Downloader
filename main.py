@@ -16,12 +16,12 @@ def start():
    def info():
       win = Tk()
       win.geometry('400x170')
-      win.title('YouTube video download | Как пользоваться')
+      win.title('YouTube video download | 如何使用')
       win["bg"] = 'white'
 
-      Label(win, text='Как пользоваться программой ', bg='white', font=('Times', 20)).pack()
+      Label(win, text='如何使用程序 ', bg='white', font=('Times', 20)).pack()
 
-      Label(win, text='1. Введите ссылку в соответствующее поле           \n2. Нажмите на кнопку "Проверить ссылку"          \n3. Выберете высокое или низкое качество             \n         (Высокое качество - максимальное, \n              Низкое качество - минимальное(144р))\n4. Файл сохраниться в папку с файлом                   \n\n!Если вы введёте неправильную ссылку програма может закрыться!', bg='white', font=('Times', 10)).pack()
+      Label(win, text='1. 在相应的字段中输入链接           \n2. 单击“检查链接”按钮          \n3. 选择高质量或低质量             \n         （高品质 - 最大, \n             低质量 - 最小(144р))\n4. 该文件将与文件一起保存在文件夹中                   \n\n!如果输入错误的链接，程序可能会关闭！', bg='white', font=('Times', 10)).pack()
 
 
       win.mainloop()
@@ -29,31 +29,31 @@ def start():
    def show_message():
 
       def low():
-         messagebox.showinfo('Загрузка началась', 'Загрузка началась\nЗакройте данное окно\nКачество: низкое', icon='question')
+         messagebox.showinfo('下载开始', '下载开始\n关闭此窗口\n质量：低', icon='question')
          output = video.streams.get_lowest_resolution()
          output.download()
-         messagebox.showinfo('Загрузка завершена', 'Загрузка завершена\nФайл сохранён в папку программы')
+         messagebox.showinfo('加载完成', '加载完成\n该文件保存在程序文件夹中')
 
       def high():
-         messagebox.showinfo('Загрузка началась', 'Загрузка началась\nЗакройте данное окно\nКачество: высокое', icon='question')
+         messagebox.showinfo('下载开始', '下载开始\n关闭此窗口\n质量：高', icon='question')
          output = video.streams.get_highest_resolution()
          output.download()
-         messagebox.showinfo('Загрузка завершена', 'Загрузка завершена\nФайл сохранён в папку программы')
+         messagebox.showinfo('加载完成', '加载完成\n该文件保存在程序文件夹中')
 
       link = entry.get()
       video = YouTube(link)
       if video == YouTube(link):
 
-         Label(self, text='Выбeрите качество: ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=175)
+         Label(self, text='选择品质: ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=175)
 
 
-         high_btn = Button(self, text='Высоком качестве', relief='flat', bg='black', fg='green', font=('Times', 15), command=high)
+         high_btn = Button(self, text='高质量', relief='flat', bg='black', fg='green', font=('Times', 15), command=high)
          high_btn.place(x=30, y=205)
 
-         low_btn = Button(self, text='Низком качестве', relief='flat', bg='black', fg='crimson', font=('Times', 15), command=low)
+         low_btn = Button(self, text='低质量', relief='flat', bg='black', fg='crimson', font=('Times', 15), command=low)
          low_btn.place(x=230, y=205)
       else:
-         messagebox.showerror('Ошибка!', 'Ошибка! \nСсылка неверная')
+         messagebox.showerror('错误！', '错误！ \n链接无效')
 
       print(video)
       print(entry.get())
@@ -64,12 +64,12 @@ def start():
    self.title('YouTube video download')
    self["bg"] = 'black'
 
-   ready_btn = Button(self, text='Проверить\nссылку', relief='flat', bg='black', fg='white', font=('Times', 15),
+   ready_btn = Button(self, text='查看\n关联', relief='flat', bg='black', fg='white', font=('Times', 15),
                       command=show_message)
    ready_btn.place(x=470, y=100)
    ready_btn["border"] = "0"
 
-   how_use_btn = Button(self, text='Как пользоваться', relief='flat', bg='black', fg='blue', font=('Times', 15),
+   how_use_btn = Button(self, text='如何使用', relief='flat', bg='black', fg='blue', font=('Times', 15),
                         command=info)
    how_use_btn.place(x=10, y=352)
    how_use_btn["border"] = "0"
@@ -78,7 +78,7 @@ def start():
                         command=self.destroy).place(x=515, y=350)
 
 
-   Label(self, text='Введите ссылку на видео: ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=100)
+   Label(self, text='输入视频链接: ', bg='black', fg='white', font=('Times', 15)).place(x=10, y=100)
 
    label = Label(self, text=" YouTube video downloader", bg='black', fg='white', font=('Times', 35))
    label.place(x=25, y=10)
